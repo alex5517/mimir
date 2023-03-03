@@ -5945,6 +5945,17 @@
             },
             {
               "kind": "field",
+              "name": "wal_reply_concurrency",
+              "required": false,
+              "desc": "Maximum number of CPUs that can simultaneously processes WAL replay. Default value is 0, meaning all available CPUs",
+              "fieldValue": null,
+              "fieldDefaultValue": 0,
+              "fieldFlag": "blocks-storage.tsdb.wal-replay-concurrency",
+              "fieldType": "int",
+              "fieldCategory": "experimental"
+            },
+            {
+              "kind": "field",
               "name": "flush_blocks_on_shutdown",
               "required": false,
               "desc": "True to flush blocks to storage on shutdown. If false, incomplete blocks will be reused after restart.",

@@ -3224,6 +3224,11 @@ tsdb:
   # CLI flag: -blocks-storage.tsdb.wal-segment-size-bytes
   [wal_segment_size_bytes: <int> | default = 134217728]
 
+  # (experimental) Maximum number of CPUs that can simultaneously processes WAL
+  # replay. Default value is 0, meaning all available CPUs
+  # CLI flag: -blocks-storage.tsdb.wal-replay-concurrency
+  [wal_reply_concurrency: <int> | default = 0]
+
   # (advanced) True to flush blocks to storage on shutdown. If false, incomplete
   # blocks will be reused after restart.
   # CLI flag: -blocks-storage.tsdb.flush-blocks-on-shutdown

@@ -529,6 +529,8 @@ Usage of ./cmd/mimir/mimir:
     	The number of shards of series to use in TSDB (must be a power of 2). Reducing this will decrease memory footprint, but can negatively impact performance. (default 16384)
   -blocks-storage.tsdb.wal-compression-enabled
     	True to enable TSDB WAL compression.
+  -blocks-storage.tsdb.wal-replay-concurrency int
+    	[experimental] Maximum number of CPUs that can simultaneously processes WAL replay. Default value is 0, meaning all available CPUs
   -blocks-storage.tsdb.wal-segment-size-bytes int
     	TSDB WAL segments files max size (bytes). (default 134217728)
   -common.storage.azure.account-key string
