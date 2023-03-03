@@ -3227,7 +3227,7 @@ tsdb:
   # (experimental) Maximum number of CPUs that can simultaneously processes WAL
   # replay. Default value is 0, meaning all available CPUs
   # CLI flag: -blocks-storage.tsdb.wal-replay-concurrency
-  [wal_reply_concurrency: <int> | default = 0]
+  [wal_replay_concurrency: <int> | default = 0]
 
   # (advanced) True to flush blocks to storage on shutdown. If false, incomplete
   # blocks will be reused after restart.

@@ -1719,7 +1719,7 @@ func (i *Ingester) createTSDB(userID string) (*userTSDB, error) {
 		HeadChunksEndTimeVariance:         i.cfg.BlocksStorageConfig.TSDB.HeadChunksEndTimeVariance,
 		WALCompression:                    i.cfg.BlocksStorageConfig.TSDB.WALCompressionEnabled,
 		WALSegmentSize:                    i.cfg.BlocksStorageConfig.TSDB.WALSegmentSizeBytes,
-		WALReplyConcurrency:               i.cfg.BlocksStorageConfig.TSDB.WALReplayConcurrency,
+		WALReplayConcurrency:              i.cfg.BlocksStorageConfig.TSDB.WALReplayConcurrency,
 		SeriesLifecycleCallback:           userDB,
 		BlocksToDelete:                    userDB.blocksToDelete,
 		EnableExemplarStorage:             true, // enable for everyone so we can raise the limit later

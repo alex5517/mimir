@@ -5945,7 +5945,7 @@
             },
             {
               "kind": "field",
-              "name": "wal_reply_concurrency",
+              "name": "wal_replay_concurrency",
               "required": false,
               "desc": "Maximum number of CPUs that can simultaneously processes WAL replay. Default value is 0, meaning all available CPUs",
               "fieldValue": null,

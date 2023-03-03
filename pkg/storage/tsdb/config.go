@@ -174,7 +174,7 @@ type TSDBConfig struct {
 	StripeSize                int           `yaml:"stripe_size" category:"advanced"`
 	WALCompressionEnabled     bool          `yaml:"wal_compression_enabled" category:"advanced"`
 	WALSegmentSizeBytes       int           `yaml:"wal_segment_size_bytes" category:"advanced"`
-	WALReplayConcurrency      int           `yaml:"wal_reply_concurrency" category:"experimental"`
+	WALReplayConcurrency      int           `yaml:"wal_replay_concurrency" category:"experimental"`
 	FlushBlocksOnShutdown     bool          `yaml:"flush_blocks_on_shutdown" category:"advanced"`
 	CloseIdleTSDBTimeout      time.Duration `yaml:"close_idle_tsdb_timeout" category:"advanced"`
 	MemorySnapshotOnShutdown  bool          `yaml:"memory_snapshot_on_shutdown" category:"experimental"`
