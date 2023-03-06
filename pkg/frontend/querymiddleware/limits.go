@@ -67,6 +67,13 @@ type Limits interface {
 	// CreationGracePeriod returns the time interval to control how far into the future
 	// incoming samples are accepted compared to the wall clock.
 	CreationGracePeriod(userID string) time.Duration
+
+	// ResultsCacheTTL returns TTL for cached results for query that doesn't fall into out of order window, or
+	// if out of order ingestion is disabled.
+	ResultsCacheTTL(userID string) time.Duration
+
+	// ResultsCacheForOutOfOrderWindowTTL returns TTL for cached results for query that falls into out-of-order ingestion window.
+	ResultsCacheTTLForOutOfOrderTimeWindow(userID string) time.Duration
 }
 
 type limitsMiddleware struct {

@@ -1550,10 +1550,15 @@ func Test_evaluateAtModifier(t *testing.T) {
 }
 
 func TestSplitAndCacheMiddlewareLowerTTL(t *testing.T) {
+	const resultsCacheTTL = 24 * time.Hour
+	const resultsCacheLowerTTL = 10 * time.Minute
+
 	mcache := cache.NewMockCache()
 	m := splitAndCacheMiddleware{
 		limits: mockLimits{
-			outOfOrderTimeWindow: model.Duration(time.Hour),
+			outOfOrderTimeWindow:            model.Duration(time.Hour),
+			resultsCacheTTL:                 resultsCacheTTL,
+			resultsCacheOutOfOrderWindowTTL: resultsCacheLowerTTL,
 		},
 		cache: mcache,
 	}

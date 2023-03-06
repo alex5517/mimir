@@ -279,18 +279,20 @@ func TestLimitsMiddleware_CreationGracePeriod(t *testing.T) {
 }
 
 type mockLimits struct {
-	maxQueryLookback               time.Duration
-	maxQueryLength                 time.Duration
-	maxTotalQueryLength            time.Duration
-	maxCacheFreshness              time.Duration
-	maxQueryParallelism            int
-	maxShardedQueries              int
-	splitInstantQueriesInterval    time.Duration
-	totalShards                    int
-	compactorShards                int
-	compactorBlocksRetentionPeriod time.Duration
-	outOfOrderTimeWindow           model.Duration
-	creationGracePeriod            time.Duration
+	maxQueryLookback                time.Duration
+	maxQueryLength                  time.Duration
+	maxTotalQueryLength             time.Duration
+	maxCacheFreshness               time.Duration
+	maxQueryParallelism             int
+	maxShardedQueries               int
+	splitInstantQueriesInterval     time.Duration
+	totalShards                     int
+	compactorShards                 int
+	compactorBlocksRetentionPeriod  time.Duration
+	outOfOrderTimeWindow            model.Duration
+	creationGracePeriod             time.Duration
+	resultsCacheTTL                 time.Duration
+	resultsCacheOutOfOrderWindowTTL time.Duration
 }
 
 func (m mockLimits) MaxQueryLookback(string) time.Duration {
@@ -341,6 +343,14 @@ func (m mockLimits) CompactorBlocksRetentionPeriod(userID string) time.Duration 
 
 func (m mockLimits) OutOfOrderTimeWindow(userID string) model.Duration {
 	return m.outOfOrderTimeWindow
+}
+
+func (m mockLimits) ResultsCacheTTL(userID string) time.Duration {
+	return m.resultsCacheTTL
+}
+
+func (m mockLimits) ResultsCacheTTLForOutOfOrderTimeWindow(userID string) time.Duration {
+	return m.resultsCacheOutOfOrderWindowTTL
 }
 
 func (m mockLimits) CreationGracePeriod(userID string) time.Duration {
